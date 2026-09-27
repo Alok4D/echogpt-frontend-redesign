@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "EchoGPT - Multi-AI Chat & Sidebar Assistant",
+  "version": "2.0.0",
+  "description": "Unified Multi-AI sidebar assistant featuring Claude 3.5 Sonnet, GPT-4o, Gemini 1.5 Pro, and DeepSeek R1 directly inside your browser tabs.",
+  "permissions": [
+    "sidePanel",
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Open EchoGPT"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
