@@ -7,12 +7,13 @@ import {
   Paperclip, 
   Mic, 
   MicOff, 
-  BookOpen, 
-  Sparkles, 
-  X, 
-  FileCode, 
-  Image as ImageIcon,
-  StopCircle
+  Lightbulb, 
+  Globe, 
+  Code2, 
+  MoreHorizontal, 
+  Sparkles,
+  X,
+  FileCode
 } from 'lucide-react';
 
 export default function PromptInput() {
@@ -20,20 +21,21 @@ export default function PromptInput() {
     sendMessage, 
     isGenerating, 
     activeModel, 
-    setIsPromptLibraryOpen,
-    isDualMode,
-    secondaryModel 
+    isDualMode, 
+    secondaryModel,
+    setIsPromptLibraryOpen 
   } = useChat();
 
   const [input, setInput] = useState('');
   const [isRecording, setIsRecording] = useState(false);
+  const [webSearchActive, setWebSearchActive] = useState(false);
   const [attachedFiles, setAttachedFiles] = useState<string[]>([]);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto';
-      textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 180)}px`;
+      textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 140)}px`;
     }
   }, [input]);
 
@@ -54,130 +56,110 @@ export default function PromptInput() {
     }
   };
 
-  const handleVoiceToggle = () => {
-    if (isRecording) {
-      setIsRecording(false);
+  const handleChipClick = (type: string) => {
+    if (type === 'Brainstorm') {
+      setInput('Brainstorm 5 creative ideas for ');
+    } else if (type === 'Web search') {
+      setWebSearchActive(!webSearchActive);
+    } else if (type === 'Code') {
+      setInput('Write clean, optimized TypeScript code for ');
     } else {
-      setIsRecording(true);
-      // Simulate speech-to-text
-      setTimeout(() => {
-        setInput(prev => prev + (prev ? ' ' : '') + 'Explain modern React 19 useActionState hook.');
-        setIsRecording(false);
-      }, 2000);
+      setIsPromptLibraryOpen(true);
     }
   };
 
-  const handleAttachSimulate = () => {
-    setAttachedFiles(prev => [...prev, 'architecture-spec.ts']);
-  };
-
   return (
-    <div className="p-4 sm:p-6 bg-background/80 backdrop-blur-xl border-t border-border/70">
-      <div className="max-w-4xl mx-auto space-y-3">
+    <div className="p-4 sm:p-6 bg-transparent">
+      <div className="max-w-3xl mx-auto space-y-2.5">
         
-        {/* Attached Files Badges */}
-        {attachedFiles.length > 0 && (
-          <div className="flex items-center gap-2 flex-wrap animate-fadeIn">
-            {attachedFiles.map((file, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-blue-500/10 text-blue-500 border border-blue-500/20 text-xs font-medium"
-              >
-                <FileCode className="w-3.5 h-3.5" />
-                <span>{file}</span>
-                <button
-                  onClick={() => setAttachedFiles(attachedFiles.filter((_, idx) => idx !== i))}
-                  className="hover:text-rose-500 ml-1"
-                >
-                  <X className="w-3 h-3" />
-                </button>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Input Container Box */}
-        <div className="relative rounded-3xl border border-border/80 bg-card/90 shadow-xl focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/20 transition-all p-3 sm:p-4">
+        {/* Floating Input Box Card */}
+        <div className="glass-pill rounded-3xl p-3.5 sm:p-4 shadow-glass transition-all focus-within:ring-2 focus-within:ring-primary/20 space-y-3">
           
-          {/* Main Textarea */}
-          <textarea
-            ref={textareaRef}
-            rows={1}
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder={`Message ${activeModel.name}${isDualMode ? ` and ${secondaryModel.name}` : ''}... (Shift+Enter for new line)`}
-            className="w-full bg-transparent border-none text-xs sm:text-sm text-foreground focus:outline-none resize-none placeholder:text-muted-foreground/70 max-h-44 leading-relaxed font-sans"
-          />
+          {/* Quick Action Chips Bar */}
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-xs">
+            <button
+              onClick={() => handleChipClick('Brainstorm')}
+              className="px-3 py-1.5 rounded-full bg-white/70 dark:bg-card/70 hover:bg-white dark:hover:bg-card border border-card-border font-semibold text-muted-foreground hover:text-foreground transition-all flex items-center gap-1.5 shadow-sm shrink-0"
+            >
+              <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
+              <span>Brainstorm</span>
+            </button>
 
-          {/* Bottom Actions Bar inside Input Box */}
-          <div className="flex items-center justify-between pt-2 border-t border-border/40 gap-2">
-            
-            {/* Left Tools: Attach, Voice, Prompt Templates */}
-            <div className="flex items-center gap-1.5">
-              <button
-                type="button"
-                onClick={handleAttachSimulate}
-                className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted border border-border/40 transition-all"
-                title="Attach code snippet or file"
-              >
-                <Paperclip className="w-4 h-4" />
-              </button>
+            <button
+              onClick={() => handleChipClick('Web search')}
+              className={`px-3 py-1.5 rounded-full border font-semibold transition-all flex items-center gap-1.5 shadow-sm shrink-0 ${
+                webSearchActive
+                  ? 'bg-primary/15 border-primary text-primary'
+                  : 'bg-white/70 dark:bg-card/70 hover:bg-white dark:hover:bg-card border-card-border text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <Globe className="w-3.5 h-3.5 text-primary" />
+              <span>Web search</span>
+            </button>
 
-              <button
-                type="button"
-                onClick={handleVoiceToggle}
-                className={`p-2 rounded-xl border transition-all ${
-                  isRecording
-                    ? 'bg-rose-500 text-white border-rose-600 animate-pulse'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted border-border/40'
-                }`}
-                title={isRecording ? 'Listening...' : 'Voice Input'}
-              >
-                {isRecording ? <Mic className="w-4 h-4" /> : <MicOff className="w-4 h-4" />}
-              </button>
+            <button
+              onClick={() => handleChipClick('Code')}
+              className="px-3 py-1.5 rounded-full bg-white/70 dark:bg-card/70 hover:bg-white dark:hover:bg-card border border-card-border font-semibold text-muted-foreground hover:text-foreground transition-all flex items-center gap-1.5 shadow-sm shrink-0"
+            >
+              <Code2 className="w-3.5 h-3.5 text-emerald-500" />
+              <span>Code</span>
+            </button>
 
-              <button
-                type="button"
-                onClick={() => setIsPromptLibraryOpen(true)}
-                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-muted-foreground hover:text-foreground hover:bg-muted border border-border/40 transition-all"
-              >
-                <BookOpen className="w-3.5 h-3.5 text-blue-500" />
-                <span>Prompt Library</span>
-              </button>
-            </div>
+            <button
+              onClick={() => handleChipClick('More')}
+              className="px-3 py-1.5 rounded-full bg-white/70 dark:bg-card/70 hover:bg-white dark:hover:bg-card border border-card-border font-semibold text-muted-foreground hover:text-foreground transition-all flex items-center gap-1.5 shadow-sm shrink-0"
+            >
+              <MoreHorizontal className="w-3.5 h-3.5" />
+              <span>More</span>
+            </button>
+          </div>
 
-            {/* Right: Active Model Badge & Send Button */}
-            <div className="flex items-center gap-2">
-              <div className="hidden sm:flex items-center gap-1 text-[11px] text-muted-foreground font-mono">
-                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: activeModel.color }} />
-                <span>{activeModel.name.split(' ')[0]}</span>
-                {isDualMode && (
-                  <span className="text-amber-500 font-bold"> + {secondaryModel.name.split(' ')[0]}</span>
-                )}
-              </div>
+          {/* Input Row */}
+          <div className="flex items-center gap-2.5 pt-1">
+            <button
+              onClick={() => setAttachedFiles(prev => [...prev, 'notes.pdf'])}
+              className="p-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-colors shrink-0"
+              title="Attach File"
+            >
+              <Paperclip className="w-4 h-4" />
+            </button>
 
-              <button
-                onClick={handleSend}
-                disabled={!input.trim() || isGenerating}
-                className="p-2.5 rounded-2xl bg-blue-600 hover:bg-blue-500 disabled:opacity-40 disabled:hover:bg-blue-600 text-white shadow-md shadow-blue-600/30 transition-all flex items-center justify-center"
-              >
-                {isGenerating ? (
-                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                ) : (
-                  <Send className="w-4 h-4" />
-                )}
-              </button>
-            </div>
+            <button
+              onClick={() => setIsRecording(!isRecording)}
+              className={`p-2 rounded-full transition-colors shrink-0 ${
+                isRecording ? 'text-rose-500 animate-pulse bg-rose-500/10' : 'text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5'
+              }`}
+              title="Voice Prompt"
+            >
+              {isRecording ? <Mic className="w-4 h-4" /> : <MicOff className="w-4 h-4" />}
+            </button>
 
+            {/* Main Textarea */}
+            <textarea
+              ref={textareaRef}
+              rows={1}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Ask me something....."
+              className="flex-1 bg-transparent border-none text-xs sm:text-sm text-foreground focus:outline-none resize-none placeholder:text-muted-foreground/70 leading-relaxed max-h-36 py-1"
+            />
+
+            {/* Circular Send Button from screenshot */}
+            <button
+              onClick={handleSend}
+              disabled={!input.trim() || isGenerating}
+              className="w-10 h-10 rounded-2xl bg-[#0ea5e9] hover:bg-[#0284c7] disabled:opacity-40 text-white shadow-glow-sky transition-all flex items-center justify-center shrink-0 hover:scale-105 active:scale-95"
+            >
+              {isGenerating ? (
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              ) : (
+                <Send className="w-4 h-4 ml-0.5" />
+              )}
+            </button>
           </div>
 
         </div>
-
-        {/* Disclaimer / Guidance Note */}
-        <p className="text-[11px] text-center text-muted-foreground">
-          EchoGPT unifies multiple AI models. Responses generated by AI may vary in accuracy.
-        </p>
 
       </div>
     </div>

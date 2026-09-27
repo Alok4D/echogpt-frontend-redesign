@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { ThemeProvider } from '@/context/ThemeContext';
-import LiveSidePanelWidget from '@/components/extension/LiveSidePanelWidget';
 
 export const metadata: Metadata = {
   title: 'EchoGPT - All-in-One Multi-AI Workspace & Chrome Extension',
@@ -27,7 +26,6 @@ export default function RootLayout({
       <body className="min-h-screen bg-background text-foreground antialiased selection:bg-primary selection:text-white">
         <ThemeProvider>
           {children}
-          <LiveSidePanelWidget />
         </ThemeProvider>
       </body>
     </html>
