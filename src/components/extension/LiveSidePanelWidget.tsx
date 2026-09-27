@@ -73,18 +73,7 @@ export default function LiveSidePanelWidget() {
   return (
     <>
       {/* Floating Trigger Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 group flex items-center gap-2.5 px-4 py-3 rounded-full chatter-btn-primary text-white font-bold text-xs shadow-lg hover:scale-105 active:scale-95 transition-all duration-300"
-        title="Open EchoGPT Chrome Sidebar Simulator"
-      >
-        <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
-          <Chrome className="w-3.5 h-3.5 text-white" />
-        </div>
-        <span>{isOpen ? 'Close Extension' : 'EchoGPT Sidebar'}</span>
-        <span className="w-2 h-2 rounded-full bg-[#10B981] animate-ping" />
-      </button>
-
+ 
       {/* Redesigned Chrome Extension Side Panel with Soft Pastel Mesh Glass */}
       {isOpen && (
         <aside className="fixed top-0 right-0 bottom-0 z-50 w-full sm:w-[400px] glass-panel bg-card/90 backdrop-blur-2xl border-l border-card-border shadow-2xl flex flex-col justify-between animate-slideLeft transition-all">

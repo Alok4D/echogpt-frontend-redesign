@@ -1,249 +1,250 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import { 
-  Sparkles, 
-  Chrome, 
-  ArrowRight, 
-  Play, 
-  CheckCircle2, 
-  Zap, 
-  ShieldCheck, 
-  Layers, 
-  Bot, 
-  Star,
+import {
+  Zap,
+  Bot,
+  Layers,
+  Sparkles,
+  Paperclip,
+  Smile,
   Send,
-  Cpu,
+  MoreVertical,
+  Chrome,
+  ArrowRight,
+  SplitSquareVertical,
   BrainCircuit,
-  Copy
 } from 'lucide-react';
-import { AI_MODELS } from '@/data/landingData';
+
+const FEATURE_CARDS = [
+  {
+    icon: <Bot className="w-5 h-5 text-[#5B4FE1]" />,
+    title: "Multi-AI Chat",
+    description: "Switch seamlessly between GPT-4o, Claude 3.5 Sonnet, Gemini 1.5, and DeepSeek R1.",
+  },
+  {
+    icon: <SplitSquareVertical className="w-5 h-5 text-[#5B4FE1]" />,
+    title: "Side-by-Side Arena",
+    description: "Prompt multiple flagship models in parallel and compare latency, code, and reasoning.",
+  },
+  {
+    icon: <Chrome className="w-5 h-5 text-[#5B4FE1]" />,
+    title: "Chrome Extension",
+    description: "Always-on browser sidebar to summarize articles, write emails, and chat on any webpage.",
+  },
+  {
+    icon: <Sparkles className="w-5 h-5 text-[#5B4FE1]" />,
+    title: "AI Creative Studios",
+    description: "Generate cinematic images & videos, optimize ATS resumes, and craft academic SOPs.",
+  },
+];
 
 export default function HeroSection() {
-  const [selectedModel, setSelectedModel] = useState(AI_MODELS[0]);
-  const [interactivePrompt, setInteractivePrompt] = useState('Compare the performance difference between React Server Components and Client Components with code.');
-  const [demoResponse, setDemoResponse] = useState<string | null>(null);
-  const [isGenerating, setIsGenerating] = useState(false);
-
-  const handleSimulate = (model = selectedModel) => {
-    setIsGenerating(true);
-    setDemoResponse(null);
-    setTimeout(() => {
-      if (model.id.includes('claude')) {
-        setDemoResponse(`**[${model.name}] Deep Architecture Analysis:**\n\n• **RSC (Server Components):** Zero bundle size impact, direct DB access, executed exclusively on the server.\n• **RCC (Client Components):** Hydrated on client, supports React state (\`useState\`, \`useEffect\`) & event handlers (\`onClick\`).\n\n\`\`\`tsx\n// Server Component (Default)\nexport default async function ProductPage() {\n  const data = await db.query('SELECT * FROM products');\n  return <ProductView items={data} />;\n}\n\`\`\``);
-      } else if (model.id.includes('deepseek')) {
-        setDemoResponse(`**[${model.name}] Reasoning Chain & Breakdown:**\n\n<think>\n1. Identify execution environment (Node/Edge vs Browser DOM).\n2. Contrast payload size: RSC serializes as JSON-like wire protocol vs JavaScript bundle.\n</think>\n\n**Key Takeaway:** RSC executes strictly during request time, eliminating massive dependencies from the client bundle.`);
-      } else {
-        setDemoResponse(`**[${model.name}] Omnimodel Summary:**\n\n1. **Server Components:** Render HTML on the server and stream wire payloads to the browser.\n2. **Client Components:** Provide full DOM interactivity, animations, and lifecycle hooks.\n\n*Pro-tip with EchoGPT: Use RSC for data fetching, wrap interactive widgets in RCC.*`);
-      }
-      setIsGenerating(false);
-    }, 600);
-  };
-
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
-      {/* Background Decorative Gradients and Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[450px] bg-gradient-to-tr from-[#5B4FE1]/20 via-[#7C3AED]/20 to-[#D946EF]/15 blur-[130px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute top-1/3 -left-32 w-80 h-80 bg-[#7C3AED]/15 blur-[100px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute top-1/2 -right-32 w-80 h-80 bg-[#D946EF]/15 blur-[100px] rounded-full pointer-events-none -z-10" />
+    <section className="relative pt-24 pb-16 md:pt-28 md:pb-24 bg-background overflow-hidden">
+      
+      {/* ── Panoramic Real Banner Background Image ── */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <Image
+          src="/banner-images/real-banner-background.png"
+          alt="Hero background banner"
+          fill
+          priority
+          className="object-cover lg:object-contain object-right opacity-90 dark:opacity-20"
+        />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-4xl mx-auto space-y-6">
-          {/* Top Announcement Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-[#5B4FE1]/10 via-[#7C3AED]/10 to-[#D946EF]/10 border border-[#5B4FE1]/30 text-[#5B4FE1] dark:text-[#A78BFA] shadow-sm backdrop-blur-md">
-            <Sparkles className="w-3.5 h-3.5 text-[#5B4FE1]" />
-            <span>Next-Gen EchoGPT Multi-AI Ecosystem 2.0</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-ping" />
-          </div>
-
-          {/* Main Hero Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-foreground leading-[1.1]">
-            One Unified Workspace.{' '}
-            <span className="chatter-gradient-text">
-              Every Flagship AI.
-            </span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto font-normal leading-relaxed">
-            Stop paying for 5 separate AI subscriptions. Switch instantly between <strong className="text-foreground">GPT-4o</strong>, <strong className="text-foreground">Claude 3.5 Sonnet</strong>, <strong className="text-foreground">Gemini 1.5 Pro</strong>, and <strong className="text-foreground">DeepSeek R1</strong> in a unified chat & browser sidebar.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-3">
-            <Link
-              href="/chat"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl text-sm font-bold text-white chatter-btn-primary"
-            >
-              <Sparkles className="w-4 h-4" />
-              <span>Launch Web App Free</span>
-              <ArrowRight className="w-4 h-4 ml-0.5" />
-            </Link>
-
-            <a
-              href="https://chromewebstore.google.com/detail/echogpt-multi-ai-chat-sid/negimdcamohmoheiifgecbjgjepkcfhj"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl text-sm font-bold text-foreground bg-card/80 hover:bg-card border border-border/80 shadow-md hover:shadow-lg backdrop-blur-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
-            >
-              <Chrome className="w-4 h-4 text-[#5B4FE1]" />
-              <span>Add to Chrome (Sidebar)</span>
-            </a>
-          </div>
-
-          {/* Social Proof & Metrics */}
-          <div className="pt-6 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-medium text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <div className="flex -space-x-1.5">
-                {[1, 2, 3, 4].map((i) => (
-                  <img
-                    key={i}
-                    src={`https://images.unsplash.com/photo-${1530000000000 + i * 12345}?w=100&auto=format&fit=crop&q=60`}
-                    alt="User"
-                    className="w-6 h-6 rounded-full border-2 border-background object-cover bg-muted"
-                  />
-                ))}
-              </div>
-              <div className="flex items-center gap-1 text-amber-400">
-                <Star className="w-3.5 h-3.5 fill-amber-400" />
-                <span className="font-bold text-foreground">4.9/5</span>
-                <span>(10k+ reviews)</span>
-              </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+        
+        {/* ── Top Hero Grid ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center min-h-[500px]">
+          
+          {/* Left Column: Text + Badges + CTAs (5 Cols) */}
+          <div className="lg:col-span-5 text-center lg:text-left flex flex-col items-center lg:items-start z-10">
+            {/* Pill Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EDE9FE]/90 dark:bg-[#5B4FE1]/15 border border-[#DDD6FE] dark:border-[#5B4FE1]/30 text-[#5B4FE1] dark:text-[#A78BFA] text-xs font-semibold mb-6 shadow-xs">
+              <Zap className="w-3.5 h-3.5 fill-[#5B4FE1] text-[#5B4FE1]" />
+              <span>Multi-AI Workspace • Chrome Sidebar • No API Keys</span>
             </div>
 
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
-              <span>No API Key Required</span>
-            </div>
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-foreground tracking-tight leading-[1.08] mb-5 font-sans">
+              One Workspace. <br />
+              Every Flagship <span className="text-[#5B4FE1]">AI Engine</span>
+            </h1>
 
-            <div className="flex items-center gap-1.5">
-              <Zap className="w-4 h-4 text-[#5B4FE1]" />
-              <span>Parallel Multi-Model Battle</span>
+            {/* Subtitle Description */}
+            <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed mb-8 max-w-md">
+              Stop paying for 5 separate subscriptions. Access <strong className="text-foreground">GPT-4o</strong>, <strong className="text-foreground">Claude 3.5 Sonnet</strong>, <strong className="text-foreground">Gemini 1.5 Pro</strong>, and <strong className="text-foreground">DeepSeek R1</strong> in one unified chat & sidebar.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5">
+              <Link
+                href="/chat"
+                className="inline-flex items-center justify-center gap-2 text-[14.5px] font-semibold text-white px-7 py-3 rounded-lg bg-[#5B4FE1] hover:bg-[#4E39E0] shadow-md shadow-[#5B4FE1]/30 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              >
+                <span>Launch Web App Free</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a
+                href="https://chromewebstore.google.com/detail/echogpt-multi-ai-chat-sid/negimdcamohmoheiifgecbjgjepkcfhj"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 text-[14.5px] font-semibold text-foreground px-6 py-3 rounded-lg border border-border bg-card hover:bg-muted transition-all shadow-xs cursor-pointer"
+              >
+                <Chrome className="w-4 h-4 text-[#5B4FE1]" />
+                <span>Add to Chrome</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column: Chat Mockup floating seamlessly on top of background (7 Cols) */}
+          <div className="lg:col-span-7 relative flex items-center justify-center lg:justify-end min-h-[400px] lg:min-h-[500px]">
+            
+            {/* Chat Box Card */}
+            <div className="relative z-10 w-full max-w-[480px] bg-card/95 backdrop-blur-md border border-border rounded-2xl shadow-xl shadow-[#5B4FE1]/10 p-5 select-none my-4">
+              
+              {/* Chat Card Header */}
+              <div className="flex items-center justify-between pb-4 border-b border-border/60">
+                <div className="flex items-center gap-3">
+                  <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-[#5B4FE1] to-[#D946EF] p-[2px] shadow-sm">
+                    <div className="w-full h-full bg-background rounded-[10px] flex items-center justify-center">
+                      <Sparkles className="w-5 h-5 text-[#5B4FE1]" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-[15px] font-bold text-foreground leading-tight">EchoGPT Arena</h3>
+                    <p className="text-[11.5px] text-muted-foreground font-medium mt-0.5 flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-[#10B981] inline-block animate-pulse" />
+                      <span>4 Models Connected</span>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  {/* Overlapping Model Badges Stack */}
+                  <div className="flex items-center -space-x-1.5">
+                    <div className="w-6 h-6 rounded-full bg-[#10A37F] text-white text-[9px] font-bold flex items-center justify-center ring-2 ring-background" title="OpenAI GPT-4o">
+                      G
+                    </div>
+                    <div className="w-6 h-6 rounded-full bg-[#D97706] text-white text-[9px] font-bold flex items-center justify-center ring-2 ring-background" title="Claude 3.5 Sonnet">
+                      C
+                    </div>
+                    <div className="w-6 h-6 rounded-full bg-[#3B82F6] text-white text-[9px] font-bold flex items-center justify-center ring-2 ring-background" title="Gemini 1.5 Pro">
+                      G
+                    </div>
+                    <div className="w-6 h-6 rounded-full bg-[#4F46E5] text-white text-[9px] font-bold flex items-center justify-center ring-2 ring-background" title="DeepSeek R1">
+                      D
+                    </div>
+                  </div>
+
+                  <Link href="/compare" className="text-muted-foreground hover:text-foreground p-1">
+                    <MoreVertical className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Chat Messages */}
+              <div className="py-4 space-y-3.5 text-xs sm:text-[13px]">
+                
+                {/* 1. User Prompt */}
+                <div className="flex items-start gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-[#5B4FE1] text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                    U
+                  </div>
+                  <div className="flex-1 bg-muted/60 border border-border/60 rounded-xl p-3">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="font-bold text-foreground">You (Multi-Prompt)</span>
+                      <span className="text-[10.5px] text-muted-foreground">Just now</span>
+                    </div>
+                    <p className="text-foreground/90 font-medium">
+                      Compare React Server Components vs Client Components in Next.js 15.
+                    </p>
+                  </div>
+                </div>
+
+                {/* 2. Claude 3.5 Sonnet Output */}
+                <div className="flex items-start gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-[#D97706] text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                    C
+                  </div>
+                  <div className="flex-1 bg-[#D97706]/5 border border-[#D97706]/20 rounded-xl p-3">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="font-bold text-[#D97706] dark:text-amber-400">Claude 3.5 Sonnet</span>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#D97706]/10 text-[#D97706] font-mono">180 t/s</span>
+                    </div>
+                    <p className="text-foreground/80 leading-relaxed">
+                      <strong className="text-foreground">RSC</strong> renders exclusively on server with zero client bundle impact. <strong className="text-foreground">RCC</strong> hydrates on browser for state & interactivity.
+                    </p>
+                  </div>
+                </div>
+
+                {/* 3. DeepSeek R1 Output */}
+                <div className="flex items-start gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-[#4F46E5] text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                    D
+                  </div>
+                  <div className="flex-1 bg-[#4F46E5]/5 border border-[#4F46E5]/20 rounded-xl p-3">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="font-bold text-[#4F46E5] dark:text-indigo-400">DeepSeek R1</span>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#4F46E5]/10 text-[#4F46E5] font-mono">Reasoning</span>
+                    </div>
+                    <p className="text-foreground/80 leading-relaxed font-mono text-[11.5px]">
+                      &lt;think&gt; RSC wire protocol payload eliminates massive npm dependencies from browser JS. &lt;/think&gt;
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Chat Mockup Input Bar */}
+              <div className="pt-2">
+                <div className="flex items-center gap-2 bg-muted/60 border border-border/80 rounded-xl px-3.5 py-2">
+                  <button type="button" className="text-muted-foreground hover:text-foreground">
+                    <Paperclip className="w-4 h-4 rotate-45" />
+                  </button>
+                  <span className="flex-1 text-[12.5px] text-muted-foreground">Ask all 4 models simultaneously...</span>
+                  <button type="button" className="text-muted-foreground hover:text-foreground">
+                    <BrainCircuit className="w-4 h-4" />
+                  </button>
+                  <Link
+                    href="/chat"
+                    className="w-7 h-7 rounded-lg bg-[#5B4FE1] hover:bg-[#4E39E0] flex items-center justify-center text-white shrink-0 transition-colors"
+                  >
+                    <Send className="w-3.5 h-3.5 -rotate-12" />
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Interactive Live Hero Sandbox Card */}
-        <div className="mt-14 max-w-5xl mx-auto">
-          <div className="relative rounded-3xl p-[1px] bg-gradient-to-b from-[#5B4FE1]/40 via-[#7C3AED]/25 to-transparent shadow-2xl shadow-[#5B4FE1]/10">
-            <div className="bg-card/90 dark:bg-[#0A0D14]/95 backdrop-blur-2xl rounded-[23px] border border-border/70 overflow-hidden shadow-inner">
-              
-              {/* Sandbox Top Bar: Model Selector Pills */}
-              <div className="px-5 py-3.5 border-b border-border/60 bg-muted/40 flex flex-wrap items-center justify-between gap-3">
-                <div className="flex items-center gap-2">
-                  <div className="flex gap-1.5">
-                    <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block" />
-                    <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
-                    <span className="w-3 h-3 rounded-full bg-[#10B981]/80 inline-block" />
-                  </div>
-                  <span className="text-xs font-semibold text-muted-foreground ml-2 hidden sm:inline">
-                    Live Multi-Model Sandbox
-                  </span>
-                </div>
-
-                {/* Model Selector Pills */}
-                <div className="flex items-center gap-1.5 overflow-x-auto py-0.5 no-scrollbar max-w-full">
-                  {AI_MODELS.slice(0, 4).map((model) => (
-                    <button
-                      key={model.id}
-                      onClick={() => {
-                        setSelectedModel(model);
-                        handleSimulate(model);
-                      }}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 flex items-center gap-1.5 shrink-0 ${
-                        selectedModel.id === model.id
-                          ? 'bg-[#5B4FE1] text-white shadow-md shadow-[#5B4FE1]/30 scale-105'
-                          : 'bg-muted/70 text-muted-foreground hover:text-foreground hover:bg-muted'
-                      }`}
-                    >
-                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: model.color }} />
-                      <span>{model.name.split(' ')[0]}</span>
-                    </button>
-                  ))}
-                </div>
+        {/* ── Bottom 4 Feature Cards (Attached flush under background shape) ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-6 sm:mt-10 relative z-10">
+          {FEATURE_CARDS.map((card, idx) => (
+            <div
+              key={idx}
+              className="bg-card/90 backdrop-blur-sm border border-border rounded-xl p-6 shadow-xs hover:shadow-md hover:border-[#5B4FE1]/40 transition-all text-left group"
+            >
+              <div className="w-10 h-10 rounded-xl bg-[#EDE9FE] dark:bg-[#5B4FE1]/15 flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
+                {card.icon}
               </div>
-
-              {/* Sandbox Content Area */}
-              <div className="p-5 sm:p-7 space-y-5">
-                {/* Input Simulation */}
-                <div className="space-y-2">
-                  <label className="text-xs font-semibold text-muted-foreground flex items-center justify-between">
-                    <span>Ask any question to test {selectedModel.name}:</span>
-                    <span className="text-[11px] text-[#5B4FE1] dark:text-[#A78BFA] font-mono">1-Click Live Test</span>
-                  </label>
-                  <div className="relative flex items-center">
-                    <input
-                      type="text"
-                      value={interactivePrompt}
-                      onChange={(e) => setInteractivePrompt(e.target.value)}
-                      onKeyDown={(e) => e.key === 'Enter' && handleSimulate()}
-                      placeholder="Type a coding, writing or reasoning prompt..."
-                      className="w-full pl-4 pr-24 py-3.5 rounded-2xl bg-muted/50 border border-border/80 focus:outline-none focus:border-[#5B4FE1] focus:ring-2 focus:ring-[#5B4FE1]/20 text-sm font-medium text-foreground transition-all"
-                    />
-                    <button
-                      onClick={() => handleSimulate()}
-                      disabled={isGenerating}
-                      className="absolute right-2 px-4 py-2 rounded-xl text-xs font-bold text-white chatter-btn-primary disabled:opacity-50 transition-all flex items-center gap-1.5"
-                    >
-                      {isGenerating ? (
-                        <div className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      ) : (
-                        <>
-                          <span>Run</span>
-                          <Send className="w-3 h-3" />
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </div>
-
-                {/* Simulated AI Output Bubble */}
-                <div className="rounded-2xl bg-muted/40 border border-border/50 p-4 sm:p-5 transition-all">
-                  <div className="flex items-center justify-between pb-3 border-b border-border/40">
-                    <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs text-white" style={{ backgroundColor: selectedModel.color }}>
-                        {selectedModel.name.charAt(0)}
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-foreground flex items-center gap-1.5">
-                          <span>{selectedModel.name}</span>
-                          <span className="text-[10px] px-2 py-0.5 rounded-full font-normal bg-muted text-muted-foreground border border-border">
-                            {selectedModel.speed}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                      <Cpu className="w-3.5 h-3.5 text-[#5B4FE1]" />
-                      <span className="font-mono text-[11px]">{selectedModel.contextWindow}</span>
-                    </div>
-                  </div>
-
-                  <div className="pt-3.5 text-xs sm:text-sm font-sans text-foreground/90 leading-relaxed font-mono whitespace-pre-wrap">
-                    {demoResponse || (
-                      <div className="space-y-2 py-1 text-muted-foreground animate-pulse">
-                        <p>Click &quot;Run&quot; above to see real-time output from {selectedModel.name}...</p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* Sandbox Bottom Footer Link */}
-              <div className="px-6 py-3 bg-muted/30 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between text-xs text-muted-foreground gap-2">
-                <span>Want to see Claude and GPT-4o battle side-by-side?</span>
-                <Link href="/compare" className="text-[#5B4FE1] dark:text-[#A78BFA] hover:underline font-bold flex items-center gap-1">
-                  <span>Open Full Comparison Arena</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-
+              <h4 className="text-[15px] font-bold text-foreground mb-1.5">
+                {card.title}
+              </h4>
+              <p className="text-[13px] text-muted-foreground leading-relaxed">
+                {card.description}
+              </p>
             </div>
-          </div>
+          ))}
         </div>
 
       </div>
     </section>
   );
 }
+
+export { HeroSection, HeroSection as Hero };
