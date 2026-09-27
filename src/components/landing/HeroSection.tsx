@@ -44,23 +44,23 @@ export default function HeroSection() {
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
       {/* Background Decorative Gradients and Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[450px] bg-gradient-to-tr from-blue-600/20 via-indigo-600/20 to-cyan-400/20 blur-[130px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute top-1/3 -left-32 w-80 h-80 bg-purple-600/15 blur-[100px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute top-1/2 -right-32 w-80 h-80 bg-cyan-600/15 blur-[100px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[450px] bg-gradient-to-tr from-[#5B4FE1]/20 via-[#7C3AED]/20 to-[#D946EF]/15 blur-[130px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-1/3 -left-32 w-80 h-80 bg-[#7C3AED]/15 blur-[100px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-1/2 -right-32 w-80 h-80 bg-[#D946EF]/15 blur-[100px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto space-y-6">
           {/* Top Announcement Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 border border-blue-500/25 text-blue-500 dark:text-blue-400 shadow-sm backdrop-blur-md animate-pulse-slow">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-[#5B4FE1]/10 via-[#7C3AED]/10 to-[#D946EF]/10 border border-[#5B4FE1]/30 text-[#5B4FE1] dark:text-[#A78BFA] shadow-sm backdrop-blur-md">
+            <Sparkles className="w-3.5 h-3.5 text-[#5B4FE1]" />
             <span>Next-Gen EchoGPT Multi-AI Ecosystem 2.0</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-ping" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-ping" />
           </div>
 
           {/* Main Hero Headline */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-foreground leading-[1.1]">
             One Unified Workspace.{' '}
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-400 bg-clip-text text-transparent">
+            <span className="chatter-gradient-text">
               Every Flagship AI.
             </span>
           </h1>
@@ -74,7 +74,7 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-3">
             <Link
               href="/chat"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl text-sm font-bold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-500 hover:to-indigo-500 shadow-xl shadow-blue-600/30 hover:shadow-blue-600/45 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl text-sm font-bold text-white chatter-btn-primary"
             >
               <Sparkles className="w-4 h-4" />
               <span>Launch Web App Free</span>
@@ -87,7 +87,7 @@ export default function HeroSection() {
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl text-sm font-bold text-foreground bg-card/80 hover:bg-card border border-border/80 shadow-md hover:shadow-lg backdrop-blur-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
             >
-              <Chrome className="w-4 h-4 text-blue-500" />
+              <Chrome className="w-4 h-4 text-[#5B4FE1]" />
               <span>Add to Chrome (Sidebar)</span>
             </a>
           </div>
@@ -113,12 +113,12 @@ export default function HeroSection() {
             </div>
 
             <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+              <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
               <span>No API Key Required</span>
             </div>
 
             <div className="flex items-center gap-1.5">
-              <Zap className="w-4 h-4 text-blue-500" />
+              <Zap className="w-4 h-4 text-[#5B4FE1]" />
               <span>Parallel Multi-Model Battle</span>
             </div>
           </div>
@@ -126,8 +126,8 @@ export default function HeroSection() {
 
         {/* Interactive Live Hero Sandbox Card */}
         <div className="mt-14 max-w-5xl mx-auto">
-          <div className="relative rounded-3xl p-[1px] bg-gradient-to-b from-blue-500/40 via-indigo-500/20 to-transparent shadow-2xl shadow-blue-500/10">
-            <div className="bg-card/90 dark:bg-[#0c101b]/95 backdrop-blur-2xl rounded-[23px] border border-border/60 overflow-hidden shadow-inner">
+          <div className="relative rounded-3xl p-[1px] bg-gradient-to-b from-[#5B4FE1]/40 via-[#7C3AED]/25 to-transparent shadow-2xl shadow-[#5B4FE1]/10">
+            <div className="bg-card/90 dark:bg-[#0A0D14]/95 backdrop-blur-2xl rounded-[23px] border border-border/70 overflow-hidden shadow-inner">
               
               {/* Sandbox Top Bar: Model Selector Pills */}
               <div className="px-5 py-3.5 border-b border-border/60 bg-muted/40 flex flex-wrap items-center justify-between gap-3">
@@ -135,7 +135,7 @@ export default function HeroSection() {
                   <div className="flex gap-1.5">
                     <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block" />
                     <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
-                    <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
+                    <span className="w-3 h-3 rounded-full bg-[#10B981]/80 inline-block" />
                   </div>
                   <span className="text-xs font-semibold text-muted-foreground ml-2 hidden sm:inline">
                     Live Multi-Model Sandbox
@@ -153,7 +153,7 @@ export default function HeroSection() {
                       }}
                       className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 flex items-center gap-1.5 shrink-0 ${
                         selectedModel.id === model.id
-                          ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30 scale-105'
+                          ? 'bg-[#5B4FE1] text-white shadow-md shadow-[#5B4FE1]/30 scale-105'
                           : 'bg-muted/70 text-muted-foreground hover:text-foreground hover:bg-muted'
                       }`}
                     >
@@ -170,7 +170,7 @@ export default function HeroSection() {
                 <div className="space-y-2">
                   <label className="text-xs font-semibold text-muted-foreground flex items-center justify-between">
                     <span>Ask any question to test {selectedModel.name}:</span>
-                    <span className="text-[11px] text-blue-500 font-mono">1-Click Live Test</span>
+                    <span className="text-[11px] text-[#5B4FE1] dark:text-[#A78BFA] font-mono">1-Click Live Test</span>
                   </label>
                   <div className="relative flex items-center">
                     <input
@@ -179,12 +179,12 @@ export default function HeroSection() {
                       onChange={(e) => setInteractivePrompt(e.target.value)}
                       onKeyDown={(e) => e.key === 'Enter' && handleSimulate()}
                       placeholder="Type a coding, writing or reasoning prompt..."
-                      className="w-full pl-4 pr-24 py-3.5 rounded-2xl bg-muted/50 border border-border/80 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-sm font-medium text-foreground transition-all"
+                      className="w-full pl-4 pr-24 py-3.5 rounded-2xl bg-muted/50 border border-border/80 focus:outline-none focus:border-[#5B4FE1] focus:ring-2 focus:ring-[#5B4FE1]/20 text-sm font-medium text-foreground transition-all"
                     />
                     <button
                       onClick={() => handleSimulate()}
                       disabled={isGenerating}
-                      className="absolute right-2 px-4 py-2 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 disabled:opacity-50 transition-all flex items-center gap-1.5"
+                      className="absolute right-2 px-4 py-2 rounded-xl text-xs font-bold text-white chatter-btn-primary disabled:opacity-50 transition-all flex items-center gap-1.5"
                     >
                       {isGenerating ? (
                         <div className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -215,7 +215,7 @@ export default function HeroSection() {
                       </div>
                     </div>
                     <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                      <Cpu className="w-3.5 h-3.5 text-blue-500" />
+                      <Cpu className="w-3.5 h-3.5 text-[#5B4FE1]" />
                       <span className="font-mono text-[11px]">{selectedModel.contextWindow}</span>
                     </div>
                   </div>
@@ -233,7 +233,7 @@ export default function HeroSection() {
               {/* Sandbox Bottom Footer Link */}
               <div className="px-6 py-3 bg-muted/30 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between text-xs text-muted-foreground gap-2">
                 <span>Want to see Claude and GPT-4o battle side-by-side?</span>
-                <Link href="/compare" className="text-blue-500 hover:text-blue-400 font-bold flex items-center gap-1">
+                <Link href="/compare" className="text-[#5B4FE1] dark:text-[#A78BFA] hover:underline font-bold flex items-center gap-1">
                   <span>Open Full Comparison Arena</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>

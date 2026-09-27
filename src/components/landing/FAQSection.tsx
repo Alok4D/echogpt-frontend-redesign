@@ -22,13 +22,13 @@ export default function FAQSection() {
         
         {/* Section Header */}
         <div className="text-center space-y-4 mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold text-purple-500 bg-purple-500/10 border border-purple-500/20">
-            <HelpCircle className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold text-[#5B4FE1] bg-[#5B4FE1]/10 border border-[#5B4FE1]/20">
+            <HelpCircle className="w-3.5 h-3.5 text-[#5B4FE1]" />
             <span>Got Questions?</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-foreground tracking-tight">
             Frequently Asked{' '}
-            <span className="bg-gradient-to-r from-purple-500 to-indigo-600 bg-clip-text text-transparent">
+            <span className="chatter-gradient-text">
               Questions
             </span>
           </h2>
@@ -44,7 +44,7 @@ export default function FAQSection() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
                   activeCategory === cat
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
+                    ? 'bg-[#5B4FE1] text-white shadow-md shadow-[#5B4FE1]/30'
                     : 'bg-muted/70 text-muted-foreground hover:text-foreground hover:bg-muted'
                 }`}
               >
@@ -71,7 +71,7 @@ export default function FAQSection() {
                   <span className="text-sm sm:text-base font-bold text-foreground">
                     {faq.question}
                   </span>
-                  <div className={`p-1.5 rounded-full bg-muted text-muted-foreground transition-transform duration-200 shrink-0 ${isOpen ? 'rotate-180 bg-blue-600 text-white' : ''}`}>
+                  <div className={`p-1.5 rounded-full bg-muted text-muted-foreground transition-transform duration-200 shrink-0 ${isOpen ? 'rotate-180 bg-[#5B4FE1] text-white' : ''}`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
@@ -87,9 +87,9 @@ export default function FAQSection() {
         </div>
 
         {/* Still have questions card */}
-        <div className="mt-12 p-6 rounded-3xl bg-gradient-to-r from-blue-600/10 via-indigo-600/10 to-transparent border border-border/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 p-6 rounded-3xl bg-gradient-to-r from-[#5B4FE1]/10 via-[#7C3AED]/10 to-transparent border border-border/60 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-2xl bg-blue-600 flex items-center justify-center text-white shrink-0">
+            <div className="w-10 h-10 rounded-2xl bg-[#5B4FE1] flex items-center justify-center text-white shrink-0">
               <MessageCircle className="w-5 h-5" />
             </div>
             <div>
@@ -99,7 +99,7 @@ export default function FAQSection() {
           </div>
           <a
             href="mailto:support@appifydevs.com"
-            className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 shadow-md transition-all shrink-0"
+            className="px-4 py-2 rounded-xl text-xs font-bold text-white chatter-btn-primary shadow-md transition-all shrink-0"
           >
             Contact Support
           </a>

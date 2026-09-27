@@ -50,28 +50,28 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 p-[2px] shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform duration-200">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#5B4FE1] via-[#7C3AED] to-[#D946EF] p-[2px] shadow-md shadow-[#5B4FE1]/25 group-hover:scale-105 transition-transform duration-200">
               <div className="w-full h-full bg-background rounded-[10px] flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-blue-500 group-hover:rotate-12 transition-transform duration-300" />
+                <Sparkles className="w-5 h-5 text-[#5B4FE1] group-hover:rotate-12 transition-transform duration-300" />
               </div>
             </div>
             <div className="flex flex-col">
               <span className="font-extrabold text-xl tracking-tight bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent">
-                Echo<span className="text-blue-500">GPT</span>
+                Echo<span className="text-[#5B4FE1]">GPT</span>
               </span>
-              <span className="text-[10px] font-medium tracking-widest text-muted-foreground uppercase -mt-1">
+              <span className="text-[10px] font-semibold tracking-widest text-[#7C3AED] dark:text-[#A78BFA] uppercase -mt-1">
                 Multi-AI Ecosystem
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-muted/50 dark:bg-card/40 border border-border/50 rounded-full px-4 py-1.5 backdrop-blur-md">
+          <nav className="hidden md:flex items-center gap-1 bg-muted/60 dark:bg-card/40 border border-border/70 rounded-full px-4 py-1.5 backdrop-blur-md">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3 py-1.5 text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-background/60 rounded-full transition-all duration-200"
+                className="px-3 py-1.5 text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-background/80 rounded-full transition-all duration-200"
               >
                 {link.name}
               </a>
@@ -83,24 +83,24 @@ export default function Navbar() {
             <button
               onClick={toggleTheme}
               aria-label="Toggle Theme"
-              className="p-2.5 rounded-full text-muted-foreground hover:text-foreground bg-muted/60 dark:bg-card/60 hover:bg-muted dark:hover:bg-card border border-border/40 transition-all duration-200"
+              className="p-2.5 rounded-full text-muted-foreground hover:text-foreground bg-muted/70 dark:bg-card/60 hover:bg-muted dark:hover:bg-card border border-border/60 transition-all duration-200"
             >
-              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-600" />}
+              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-[#5B4FE1]" />}
             </button>
 
             <a
               href="https://chromewebstore.google.com/detail/echogpt-multi-ai-chat-sid/negimdcamohmoheiifgecbjgjepkcfhj"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-foreground bg-muted/70 hover:bg-muted border border-border/60 transition-all duration-200"
+              className="hidden lg:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-foreground bg-muted/70 hover:bg-muted border border-border/70 transition-all duration-200"
             >
-              <Chrome className="w-4 h-4 text-blue-500" />
+              <Chrome className="w-4 h-4 text-[#5B4FE1]" />
               <span>Chrome Store</span>
             </a>
 
             <Link
               href="/chat"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 shadow-md shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white chatter-btn-primary"
             >
               <LayoutDashboard className="w-3.5 h-3.5" />
               <span>Launch Web App</span>
@@ -115,7 +115,7 @@ export default function Navbar() {
               aria-label="Toggle Theme"
               className="p-2 rounded-lg text-muted-foreground bg-muted border border-border/40"
             >
-              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-600" />}
+              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-[#5B4FE1]" />}
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -138,7 +138,7 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium text-foreground bg-muted/60"
               >
-                <link.icon className="w-4 h-4 text-blue-500" />
+                <link.icon className="w-4 h-4 text-[#5B4FE1]" />
                 <span>{link.name}</span>
               </a>
             ))}
@@ -147,7 +147,7 @@ export default function Navbar() {
             <Link
               href="/chat"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold text-white bg-blue-600"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold text-white chatter-btn-primary"
             >
               <LayoutDashboard className="w-4 h-4" />
               <span>Launch Web App</span>

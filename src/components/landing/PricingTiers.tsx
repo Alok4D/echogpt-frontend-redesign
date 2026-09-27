@@ -14,13 +14,13 @@ export default function PricingTiers() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold text-blue-500 bg-blue-500/10 border border-blue-500/20">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold text-[#5B4FE1] bg-[#5B4FE1]/10 border border-[#5B4FE1]/20">
+            <Sparkles className="w-3.5 h-3.5 text-[#5B4FE1]" />
             <span>Simple, Transparent Pricing</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-foreground tracking-tight">
             One Plan. All Top-Tier{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="chatter-gradient-text">
               AI Models.
             </span>
           </h2>
@@ -38,7 +38,7 @@ export default function PricingTiers() {
               className="w-14 h-7 rounded-full bg-muted border border-border/80 p-1 flex items-center transition-all relative"
             >
               <div
-                className={`w-5 h-5 rounded-full bg-blue-600 shadow-md transition-transform duration-300 ${
+                className={`w-5 h-5 rounded-full bg-[#5B4FE1] shadow-md transition-transform duration-300 ${
                   billingCycle === 'yearly' ? 'translate-x-7' : 'translate-x-0'
                 }`}
               />
@@ -62,12 +62,12 @@ export default function PricingTiers() {
                 key={plan.id}
                 className={`relative rounded-3xl p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 ${
                   plan.popular
-                    ? 'bg-card/95 border-2 border-blue-500 shadow-2xl shadow-blue-500/15 scale-105 z-10'
-                    : 'bg-card/70 border border-border/70 hover:border-border shadow-md'
+                    ? 'bg-card/95 border-2 border-[#5B4FE1] shadow-2xl shadow-[#5B4FE1]/15 scale-105 z-10'
+                    : 'bg-card/70 border border-border/80 hover:border-border shadow-md'
                 } backdrop-blur-xl`}
               >
                 {plan.badge && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-gradient-to-r from-[#5B4FE1] via-[#7C3AED] to-[#D946EF] text-white shadow-lg">
                     {plan.badge}
                   </div>
                 )}
@@ -91,7 +91,7 @@ export default function PricingTiers() {
 
                   {/* Limits Badge */}
                   <div className="p-3 rounded-2xl bg-muted/60 border border-border/50 space-y-1">
-                    <span className="text-[10px] font-bold text-blue-500 uppercase tracking-wider block">Usage Limits</span>
+                    <span className="text-[10px] font-bold text-[#5B4FE1] uppercase tracking-wider block">Usage Limits</span>
                     <span className="text-xs font-semibold text-foreground block">{plan.tokensMonthly}</span>
                   </div>
 
@@ -115,7 +115,7 @@ export default function PricingTiers() {
                     href={`/chat?plan=${plan.id}`}
                     className={`w-full py-3.5 rounded-2xl text-xs font-bold transition-all flex items-center justify-center gap-2 ${
                       plan.popular
-                        ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5'
+                        ? 'chatter-btn-primary'
                         : 'bg-muted hover:bg-muted/80 text-foreground border border-border/60'
                     }`}
                   >
@@ -131,11 +131,11 @@ export default function PricingTiers() {
         {/* Security & Guarantee Note */}
         <div className="mt-12 text-center text-xs text-muted-foreground flex flex-wrap items-center justify-center gap-6">
           <div className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 text-emerald-500" />
+            <ShieldCheck className="w-4 h-4 text-[#10B981]" />
             <span>30-Day Money Back Guarantee</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <Zap className="w-4 h-4 text-blue-500" />
+            <Zap className="w-4 h-4 text-[#5B4FE1]" />
             <span>Instant Activation & Setup</span>
           </div>
         </div>

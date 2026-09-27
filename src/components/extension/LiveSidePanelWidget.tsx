@@ -75,14 +75,14 @@ export default function LiveSidePanelWidget() {
       {/* Floating Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 group flex items-center gap-2.5 px-4 py-3 rounded-full bg-gradient-to-r from-[#0ea5e9] to-[#2563eb] text-white font-bold text-xs shadow-glow-sky hover:scale-105 active:scale-95 transition-all duration-300"
+        className="fixed bottom-6 right-6 z-50 group flex items-center gap-2.5 px-4 py-3 rounded-full chatter-btn-primary text-white font-bold text-xs shadow-lg hover:scale-105 active:scale-95 transition-all duration-300"
         title="Open EchoGPT Chrome Sidebar Simulator"
       >
         <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
           <Chrome className="w-3.5 h-3.5 text-white" />
         </div>
         <span>{isOpen ? 'Close Extension' : 'EchoGPT Sidebar'}</span>
-        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+        <span className="w-2 h-2 rounded-full bg-[#10B981] animate-ping" />
       </button>
 
       {/* Redesigned Chrome Extension Side Panel with Soft Pastel Mesh Glass */}
@@ -92,8 +92,8 @@ export default function LiveSidePanelWidget() {
           {/* Top Header */}
           <div className="p-4 border-b border-card-border bg-white/40 dark:bg-card/40 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-foreground text-background flex items-center justify-center font-black text-xs shadow-md">
-                ✕
+              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#5B4FE1] to-[#7C3AED] text-white flex items-center justify-center font-black text-xs shadow-md">
+                E
               </div>
               <div>
                 <span className="text-xs font-black text-foreground block">EchoGPT Sidebar</span>
@@ -104,7 +104,7 @@ export default function LiveSidePanelWidget() {
             <div className="flex items-center gap-1.5">
               <button
                 onClick={() => setMessages([{ role: 'assistant', text: 'New session initialized. How can I assist you?', model: selectedModel.name }])}
-                className="px-2.5 py-1 rounded-full text-[11px] font-bold text-primary bg-primary/10 hover:bg-primary/20 transition-all flex items-center gap-1"
+                className="px-2.5 py-1 rounded-full text-[11px] font-bold text-[#5B4FE1] bg-[#5B4FE1]/10 hover:bg-[#5B4FE1]/20 transition-all flex items-center gap-1"
               >
                 <Plus className="w-3 h-3" />
                 <span>New</span>
@@ -140,12 +140,12 @@ export default function LiveSidePanelWidget() {
                           setActiveTab(action.tab as any);
                           handleSend(action.prompt);
                         }}
-                        className="p-2.5 rounded-2xl glass-pill hover:border-primary/40 text-left transition-all flex items-center gap-2 group"
+                        className="p-2.5 rounded-2xl glass-pill hover:border-[#5B4FE1]/40 text-left transition-all flex items-center gap-2 group"
                       >
-                        <div className="w-7 h-7 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-105">
+                        <div className="w-7 h-7 rounded-xl bg-[#5B4FE1]/10 text-[#5B4FE1] flex items-center justify-center group-hover:scale-105">
                           <action.icon className="w-3.5 h-3.5" />
                         </div>
-                        <span className="text-xs font-bold text-foreground group-hover:text-primary truncate">
+                        <span className="text-xs font-bold text-foreground group-hover:text-[#5B4FE1] truncate">
                           {action.name}
                         </span>
                       </button>
@@ -179,7 +179,7 @@ export default function LiveSidePanelWidget() {
                       }`}
                     >
                       {m.role === 'assistant' && (
-                        <span className="text-[10px] font-bold text-primary block mb-1">
+                        <span className="text-[10px] font-bold text-[#5B4FE1] block mb-1">
                           {m.model || 'EchoGPT'}
                         </span>
                       )}
@@ -189,7 +189,7 @@ export default function LiveSidePanelWidget() {
 
                   {isTyping && (
                     <div className="p-3 rounded-2xl glass-pill text-xs text-muted-foreground animate-pulse max-w-[180px] flex items-center gap-2">
-                      <Sparkles className="w-3.5 h-3.5 text-primary animate-spin" />
+                      <Sparkles className="w-3.5 h-3.5 text-[#5B4FE1] animate-spin" />
                       <span>Thinking...</span>
                     </div>
                   )}
@@ -216,7 +216,7 @@ export default function LiveSidePanelWidget() {
                     onClick={() => setActiveTab(item.id as any)}
                     className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
                       activeTab === item.id
-                        ? 'bg-primary text-white font-bold shadow-md'
+                        ? 'bg-[#5B4FE1] text-white font-bold shadow-md'
                         : 'text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5'
                     }`}
                     title={item.name}
@@ -269,7 +269,7 @@ export default function LiveSidePanelWidget() {
                           <span className="w-2 h-2 rounded-full" style={{ backgroundColor: m.color }} />
                           <span>{m.name}</span>
                         </div>
-                        {selectedModel.id === m.id && <Check className="w-3 h-3 text-primary" />}
+                        {selectedModel.id === m.id && <Check className="w-3 h-3 text-[#5B4FE1]" />}
                       </button>
                     ))}
                   </div>
@@ -293,12 +293,12 @@ export default function LiveSidePanelWidget() {
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Ask me something....."
-                className="w-full pl-3 pr-10 py-2.5 rounded-2xl glass-pill text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+                className="w-full pl-3 pr-10 py-2.5 rounded-2xl glass-pill text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-[#5B4FE1]"
               />
               <button
                 onClick={() => handleSend()}
                 disabled={!inputMessage.trim() || isTyping}
-                className="absolute right-1.5 p-1.5 rounded-xl bg-[#0ea5e9] hover:bg-[#0284c7] disabled:opacity-40 text-white shadow-sm transition-all"
+                className="absolute right-1.5 p-1.5 rounded-xl chatter-btn-primary disabled:opacity-40 text-white shadow-sm transition-all"
               >
                 <Send className="w-3.5 h-3.5" />
               </button>

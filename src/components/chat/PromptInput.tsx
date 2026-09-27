@@ -145,11 +145,11 @@ export default function PromptInput() {
               className="flex-1 bg-transparent border-none text-xs sm:text-sm text-foreground focus:outline-none resize-none placeholder:text-muted-foreground/70 leading-relaxed max-h-36 py-1"
             />
 
-            {/* Circular Send Button from screenshot */}
+            {/* Circular Send Button */}
             <button
               onClick={handleSend}
               disabled={!input.trim() || isGenerating}
-              className="w-10 h-10 rounded-2xl bg-[#0ea5e9] hover:bg-[#0284c7] disabled:opacity-40 text-white shadow-glow-sky transition-all flex items-center justify-center shrink-0 hover:scale-105 active:scale-95"
+              className="w-10 h-10 rounded-2xl chatter-btn-primary disabled:opacity-40 text-white transition-all flex items-center justify-center shrink-0 hover:scale-105 active:scale-95"
             >
               {isGenerating ? (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />

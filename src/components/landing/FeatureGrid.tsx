@@ -24,8 +24,8 @@ export default function FeatureGrid() {
       title: 'Side-by-Side Multi-AI Battle',
       badge: 'Exclusive Feature',
       description: 'Send one prompt simultaneously to Claude 3.5 Sonnet, GPT-4o, and DeepSeek R1. Benchmark code quality, accuracy, and speed in real-time.',
-      gradient: 'from-blue-600 to-indigo-600',
-      tagColor: 'text-blue-500 bg-blue-500/10 border-blue-500/20',
+      gradient: 'from-[#5B4FE1] to-[#7C3AED]',
+      tagColor: 'text-[#5B4FE1] bg-[#5B4FE1]/10 border-[#5B4FE1]/20',
       link: '/compare',
       actionText: 'Try Model Battle'
     },
@@ -34,8 +34,8 @@ export default function FeatureGrid() {
       title: 'Context-Aware Browser Sidebar',
       badge: 'Chrome Extension',
       description: 'Highlight any text or code on any website for instant Summarize, Explain, Fix Grammar, or Translation without leaving the page.',
-      gradient: 'from-cyan-500 to-blue-600',
-      tagColor: 'text-cyan-500 bg-cyan-500/10 border-cyan-500/20',
+      gradient: 'from-[#4F46E5] to-[#D946EF]',
+      tagColor: 'text-[#7C3AED] bg-[#7C3AED]/10 border-[#7C3AED]/20',
       link: '#extension',
       actionText: 'Explore Extension'
     },
@@ -44,8 +44,8 @@ export default function FeatureGrid() {
       title: 'AI Image & Creative Studio',
       badge: 'Studio Suite',
       description: 'Generate high-definition visuals with curated styles, custom aspect ratios (16:9, 1:1, 4:3), and prompt engineering enhancements.',
-      gradient: 'from-purple-500 to-pink-600',
-      tagColor: 'text-purple-500 bg-purple-500/10 border-purple-500/20',
+      gradient: 'from-[#7C3AED] to-[#D946EF]',
+      tagColor: 'text-[#D946EF] bg-[#D946EF]/10 border-[#D946EF]/20',
       link: '/image-studio',
       actionText: 'Open Image Studio'
     },
@@ -74,7 +74,7 @@ export default function FeatureGrid() {
       title: 'Artifacts & Syntax Highlighting',
       badge: 'Developer First',
       description: 'Rich code execution preview, 1-click clipboard copy, and markdown rendering with zero clutter and optimal readability.',
-      gradient: 'from-rose-500 to-red-600',
+      gradient: 'from-[#5B4FE1] to-rose-500',
       tagColor: 'text-rose-500 bg-rose-500/10 border-rose-500/20',
       link: '/chat',
       actionText: 'Test Code Sandbox'
@@ -86,13 +86,13 @@ export default function FeatureGrid() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold text-blue-500 bg-blue-500/10 border border-blue-500/20">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold text-[#5B4FE1] bg-[#5B4FE1]/10 border border-[#5B4FE1]/20">
             <Zap className="w-3.5 h-3.5" />
             <span>Power Features</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-foreground tracking-tight">
             Engineered for Uncompromised{' '}
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-400 bg-clip-text text-transparent">
+            <span className="chatter-gradient-text">
               Productivity
             </span>
           </h2>
@@ -106,7 +106,7 @@ export default function FeatureGrid() {
           {features.map((feature, idx) => (
             <div
               key={idx}
-              className="group relative rounded-3xl p-7 bg-card/60 hover:bg-card/90 border border-border/70 hover:border-blue-500/40 backdrop-blur-xl shadow-sm hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1"
+              className="group relative rounded-3xl p-7 bg-card/70 hover:bg-card/95 border border-border/80 hover:border-[#5B4FE1]/40 backdrop-blur-xl shadow-sm hover:shadow-xl hover:shadow-[#5B4FE1]/5 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1"
             >
               {/* Card Top */}
               <div className="space-y-4">
@@ -119,7 +119,7 @@ export default function FeatureGrid() {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-foreground group-hover:text-blue-500 transition-colors">
+                <h3 className="text-xl font-bold text-foreground group-hover:text-[#5B4FE1] dark:group-hover:text-[#A78BFA] transition-colors">
                   {feature.title}
                 </h3>
 
@@ -129,10 +129,10 @@ export default function FeatureGrid() {
               </div>
 
               {/* Card Footer Link */}
-              <div className="pt-6 mt-4 border-t border-border/40">
+              <div className="pt-6 mt-4 border-t border-border/50">
                 <Link
                   href={feature.link}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#5B4FE1] dark:text-[#A78BFA] group-hover:translate-x-1 transition-all"
                 >
                   <span>{feature.actionText}</span>
                   <ArrowRight className="w-3.5 h-3.5" />

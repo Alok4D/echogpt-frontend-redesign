@@ -80,14 +80,14 @@ export default function AppSidebar() {
         {/* Brand */}
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5 overflow-hidden">
-            <div className="w-9 h-9 rounded-2xl bg-gradient-to-tr from-[#0ea5e9] to-[#2563eb] p-[2px] shrink-0 shadow-sm">
+            <div className="w-9 h-9 rounded-2xl bg-gradient-to-tr from-[#5B4FE1] via-[#7C3AED] to-[#D946EF] p-[2px] shrink-0 shadow-sm">
               <div className="w-full h-full bg-background rounded-[14px] flex items-center justify-center">
-                <Sparkles className="w-4 h-4 text-primary" />
+                <Sparkles className="w-4 h-4 text-[#5B4FE1]" />
               </div>
             </div>
             {isSidebarOpen && (
               <span className="font-extrabold text-lg tracking-tight text-foreground whitespace-nowrap">
-                Echo<span className="text-primary">GPT</span>
+                Echo<span className="text-[#5B4FE1]">GPT</span>
               </span>
             )}
           </Link>
@@ -104,7 +104,7 @@ export default function AppSidebar() {
         {/* New Chat Primary Button */}
         <button
           onClick={() => createNewChat()}
-          className={`w-full py-2.5 rounded-2xl font-bold text-xs text-white bg-gradient-to-r from-[#0ea5e9] via-[#0284c7] to-[#2563eb] hover:from-[#0284c7] hover:to-[#1d4ed8] shadow-glow-sky transition-all flex items-center justify-center gap-2 ${
+          className={`w-full py-2.5 rounded-2xl font-bold text-xs text-white chatter-btn-primary transition-all flex items-center justify-center gap-2 ${
             !isSidebarOpen && 'px-0'
           }`}
         >
@@ -121,7 +121,7 @@ export default function AppSidebar() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search chat history..."
-              className="w-full pl-9 pr-3 py-2 rounded-xl glass-pill text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+              className="w-full pl-9 pr-3 py-2 rounded-xl glass-pill text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-[#5B4FE1]"
             />
           </div>
         )}
@@ -146,7 +146,7 @@ export default function AppSidebar() {
                 href={item.href}
                 className={`flex items-center gap-3 px-3 py-2.5 rounded-2xl font-medium transition-all ${
                   isActive
-                    ? 'bg-primary/15 text-primary font-bold shadow-sm'
+                    ? 'bg-[#5B4FE1]/15 text-[#5B4FE1] dark:text-[#A78BFA] font-bold shadow-sm'
                     : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                 } ${!isSidebarOpen && 'justify-center px-0'}`}
                 title={item.name}
@@ -157,7 +157,7 @@ export default function AppSidebar() {
                     <span className="truncate">{item.name}</span>
                     {item.badge && (
                       <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded-full ${
-                        isActive ? 'bg-primary text-white' : 'bg-primary/10 text-primary'
+                        isActive ? 'bg-[#5B4FE1] text-white' : 'bg-[#5B4FE1]/10 text-[#5B4FE1] dark:text-[#A78BFA]'
                       }`}>
                         {item.badge}
                       </span>
@@ -185,7 +185,7 @@ export default function AppSidebar() {
                     onClick={() => selectSession(s.id)}
                     className={`group cursor-pointer flex items-center justify-between px-3 py-2 rounded-xl transition-all ${
                       currentSession?.id === s.id
-                        ? 'glass-pill font-bold text-foreground border-primary/30'
+                        ? 'glass-pill font-bold text-foreground border-[#5B4FE1]/40'
                         : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'
                     }`}
                   >
@@ -213,7 +213,7 @@ export default function AppSidebar() {
                   onClick={() => selectSession(s.id)}
                   className={`group cursor-pointer flex items-center justify-between px-3 py-2 rounded-xl transition-all ${
                     currentSession?.id === s.id
-                      ? 'glass-pill font-bold text-foreground border-primary/30'
+                      ? 'glass-pill font-bold text-foreground border-[#5B4FE1]/40'
                       : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'
                   }`}
                 >
@@ -238,12 +238,12 @@ export default function AppSidebar() {
       {/* Bottom Pro Membership & Settings Footer */}
       <div className="p-3.5 border-t border-card-border space-y-3 bg-white/20 dark:bg-card/20">
         {isSidebarOpen ? (
-          <div className="relative rounded-3xl p-4 bg-gradient-to-br from-[#0ea5e9] via-[#0284c7] to-[#2563eb] text-white shadow-xl shadow-cyan-500/20 space-y-2.5">
+          <div className="relative rounded-3xl p-4 bg-gradient-to-br from-[#4F46E5] via-[#7C3AED] to-[#D946EF] text-white shadow-xl shadow-[#5B4FE1]/20 space-y-2.5">
             <div className="flex items-center justify-between text-xs">
               <span className="font-black text-sm">Premium Plan</span>
               <span className="font-mono text-[10px] bg-white/20 px-2 py-0.5 rounded-full">{proTokensRemaining} chats</span>
             </div>
-            <p className="text-[11px] text-blue-100/90 leading-tight">Pick the plan and unlock all features</p>
+            <p className="text-[11px] text-purple-100 leading-tight">Pick the plan and unlock all features</p>
             <button
               onClick={() => setIsUpgradeModalOpen(true)}
               className="w-full py-2 rounded-2xl bg-white/20 hover:bg-white/30 backdrop-blur-md text-white font-bold text-xs transition-all flex items-center justify-center gap-1.5 border border-white/25"
@@ -255,7 +255,7 @@ export default function AppSidebar() {
         ) : (
           <button
             onClick={() => setIsUpgradeModalOpen(true)}
-            className="w-full p-2.5 rounded-2xl bg-gradient-to-br from-[#0ea5e9] to-[#2563eb] text-white flex items-center justify-center"
+            className="w-full p-2.5 rounded-2xl bg-gradient-to-br from-[#5B4FE1] to-[#7C3AED] text-white flex items-center justify-center"
             title="Premium Plan"
           >
             <Crown className="w-4 h-4" />
@@ -264,7 +264,7 @@ export default function AppSidebar() {
 
         <div className="flex items-center justify-between pt-1">
           <div className="flex items-center gap-2 overflow-hidden">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xs shrink-0">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#5B4FE1] via-[#7C3AED] to-[#D946EF] flex items-center justify-center text-white font-bold text-xs shrink-0">
               A
             </div>
             {isSidebarOpen && (

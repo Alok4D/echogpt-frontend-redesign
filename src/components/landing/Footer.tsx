@@ -48,13 +48,13 @@ export default function Footer() {
           {/* Brand Col */}
           <div className="col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 p-[2px]">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#5B4FE1] via-[#7C3AED] to-[#D946EF] p-[2px]">
                 <div className="w-full h-full bg-background rounded-[10px] flex items-center justify-center">
-                  <Sparkles className="w-4 h-4 text-blue-500" />
+                  <Sparkles className="w-4 h-4 text-[#5B4FE1]" />
                 </div>
               </div>
               <span className="font-black text-xl tracking-tight text-foreground">
-                Echo<span className="text-blue-500">GPT</span>
+                Echo<span className="text-[#5B4FE1]">GPT</span>
               </span>
             </Link>
 

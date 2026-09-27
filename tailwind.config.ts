@@ -9,6 +9,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Geist', 'Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -26,13 +30,23 @@ const config: Config = {
           DEFAULT: "var(--muted-bg)",
           foreground: "var(--muted-foreground)",
         },
+        chatter: {
+          indigo: "#5B4FE1",
+          deepIndigo: "#4F46E5",
+          violet: "#7C3AED",
+          fuchsia: "#D946EF",
+          emerald: "#10B981",
+          border: "#E2E8F0",
+          darkBg: "#0A0D14",
+          cardDark: "#111827",
+        },
         brand: {
-          sky: "#0284c7",
-          cyan: "#0ea5e9",
-          softBlue: "#38bdf8",
-          indigo: "#6366f1",
-          lavender: "#a855f7",
-          mint: "#10b981",
+          sky: "#5B4FE1",
+          cyan: "#4F46E5",
+          softBlue: "#7C3AED",
+          indigo: "#5B4FE1",
+          lavender: "#D946EF",
+          mint: "#10B981",
         }
       },
       borderRadius: {
@@ -41,9 +55,10 @@ const config: Config = {
         '4xl': '32px',
       },
       boxShadow: {
-        'glass': '0 12px 36px -4px rgba(15, 23, 42, 0.08), 0 4px 16px -2px rgba(15, 23, 42, 0.03)',
+        'glass': '0 10px 30px -5px rgba(91, 79, 225, 0.08), 0 4px 16px -2px rgba(15, 23, 42, 0.03)',
         'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
-        'glow-sky': '0 10px 25px -3px rgba(14, 165, 233, 0.4)',
+        'glow-primary': '0 10px 25px -3px rgba(91, 79, 225, 0.4)',
+        'glow-violet': '0 10px 25px -3px rgba(124, 58, 237, 0.4)',
       },
       animation: {
         "float": "float 6s ease-in-out infinite",

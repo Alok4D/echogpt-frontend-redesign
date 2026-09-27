@@ -87,7 +87,7 @@ export default function ProductPreview() {
                 onClick={() => setActiveBattleIndex(idx)}
                 className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all ${
                   activeBattleIndex === idx
-                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md'
+                    ? 'bg-gradient-to-r from-[#5B4FE1] to-[#7C3AED] text-white shadow-md'
                     : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                 }`}
               >
@@ -98,17 +98,17 @@ export default function ProductPreview() {
         </div>
 
         {/* Dual Window Battle Card */}
-        <div className="rounded-3xl border border-border/80 bg-card/90 dark:bg-[#0b0e17] backdrop-blur-2xl p-4 sm:p-7 shadow-2xl space-y-6">
+        <div className="rounded-3xl border border-border/80 bg-card/90 dark:bg-[#0A0D14] backdrop-blur-2xl p-4 sm:p-7 shadow-2xl space-y-6">
           
           {/* Prompt Header */}
           <div className="p-4 rounded-2xl bg-muted/60 border border-border/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div className="space-y-1">
-              <span className="text-[11px] font-bold text-blue-500 uppercase tracking-wider">Shared Prompt</span>
+              <span className="text-[11px] font-bold text-[#5B4FE1] uppercase tracking-wider">Shared Prompt</span>
               <p className="text-sm font-semibold text-foreground">&quot;{activeBattle.prompt}&quot;</p>
             </div>
             <Link
               href={`/compare?prompt=${encodeURIComponent(activeBattle.prompt)}`}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 transition-all shrink-0"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold text-white chatter-btn-primary transition-all shrink-0"
             >
               <span>Test Live in App</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -132,7 +132,7 @@ export default function ProductPreview() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[11px] px-2 py-0.5 rounded-md font-mono bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                    <span className="text-[11px] px-2 py-0.5 rounded-md font-mono bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/20">
                       ⚡ {activeBattle.leftSpeed}
                     </span>
                     <button
@@ -144,7 +144,7 @@ export default function ProductPreview() {
                   </div>
                 </div>
 
-                <div className="rounded-xl bg-[#090b10] border border-border/40 p-3.5 overflow-x-auto font-mono text-xs text-emerald-400/90 leading-relaxed">
+                <div className="rounded-xl bg-[#07090E] border border-border/40 p-3.5 overflow-x-auto font-mono text-xs text-[#A78BFA] leading-relaxed">
                   <pre>{activeBattle.leftCode}</pre>
                 </div>
               </div>
@@ -164,7 +164,7 @@ export default function ProductPreview() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[11px] px-2 py-0.5 rounded-md font-mono bg-blue-500/10 text-blue-500 border border-blue-500/20">
+                    <span className="text-[11px] px-2 py-0.5 rounded-md font-mono bg-[#5B4FE1]/10 text-[#5B4FE1] border border-[#5B4FE1]/20">
                       ⚡ {activeBattle.rightSpeed}
                     </span>
                     <button
@@ -176,7 +176,7 @@ export default function ProductPreview() {
                   </div>
                 </div>
 
-                <div className="rounded-xl bg-[#090b10] border border-border/40 p-3.5 overflow-x-auto font-mono text-xs text-blue-400/90 leading-relaxed">
+                <div className="rounded-xl bg-[#07090E] border border-border/40 p-3.5 overflow-x-auto font-mono text-xs text-indigo-300 leading-relaxed">
                   <pre>{activeBattle.rightCode}</pre>
                 </div>
               </div>

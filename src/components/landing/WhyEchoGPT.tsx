@@ -49,13 +49,13 @@ export default function WhyEchoGPT() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold text-emerald-500 bg-emerald-500/10 border border-emerald-500/20">
-            <ShieldCheck className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold text-[#10B981] bg-[#10B981]/10 border border-[#10B981]/20">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
             <span>Smart Economics & Workflow</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-foreground tracking-tight">
             Why Switch to{' '}
-            <span className="bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 bg-clip-text text-transparent">
+            <span className="chatter-gradient-text">
               EchoGPT
             </span>
             ?
@@ -69,7 +69,7 @@ export default function WhyEchoGPT() {
         <div className="max-w-4xl mx-auto rounded-3xl border border-border/80 bg-card/90 backdrop-blur-xl shadow-2xl overflow-hidden">
           <div className="grid grid-cols-12 p-4 sm:p-6 border-b border-border/70 bg-muted/50 text-xs sm:text-sm font-bold">
             <div className="col-span-5 sm:col-span-6 text-foreground">Capability / Feature</div>
-            <div className="col-span-4 sm:col-span-3 text-blue-500 flex items-center gap-1">
+            <div className="col-span-4 sm:col-span-3 text-[#5B4FE1] dark:text-[#A78BFA] flex items-center gap-1">
               <Sparkles className="w-3.5 h-3.5" />
               <span>EchoGPT</span>
             </div>
@@ -86,7 +86,7 @@ export default function WhyEchoGPT() {
                 {/* EchoGPT Column */}
                 <div className="col-span-4 sm:col-span-3 flex items-start sm:items-center gap-2 font-medium text-emerald-600 dark:text-emerald-400">
                   <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
-                    <Check className="w-3.5 h-3.5 text-emerald-500" />
+                    <Check className="w-3.5 h-3.5 text-[#10B981]" />
                   </div>
                   <span className="text-xs sm:text-sm">{item.echogpt}</span>
                 </div>
@@ -103,14 +103,14 @@ export default function WhyEchoGPT() {
           </div>
 
           {/* Bottom Banner */}
-          <div className="p-6 bg-gradient-to-r from-blue-600/10 via-indigo-600/10 to-transparent border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="p-6 bg-gradient-to-r from-[#5B4FE1]/10 via-[#7C3AED]/10 to-transparent border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
               <h4 className="font-bold text-foreground text-sm">Save over $480/year with unified intelligence</h4>
               <p className="text-xs text-muted-foreground">Zero setup fees. Cancel anytime with 1 click.</p>
             </div>
             <a
               href="#pricing"
-              className="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-600/30 transition-all shrink-0"
+              className="px-5 py-2.5 rounded-xl text-xs font-bold text-white chatter-btn-primary shadow-md transition-all shrink-0"
             >
               See Pricing Plans
             </a>
